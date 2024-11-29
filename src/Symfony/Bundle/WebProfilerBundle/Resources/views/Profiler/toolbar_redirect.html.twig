@@ -39,8 +39,12 @@
             <div class="block-exception">
                 <h1>Redirection Intercepted</h1>
 
-                {% set absolute_url = absolute_url(location) %}
-                <p>This request redirects to <strong>{{ absolute_url }}</strong></p>
+                {% if location %}
+                    {% set absolute_url = absolute_url(location) %}
+                    <p>This request redirects to <strong>{{ absolute_url }}</strong></p>
+                {% else %}
+                    {# TODO: what do do? #}
+                {% endif %}
 
                 <p><a class="btn" href="{{ absolute_url }}">Follow redirect</a></p>
 
